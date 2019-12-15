@@ -3,7 +3,8 @@
 [![pipeline status](https://gitlab.com/JessieZhao/mci-test-cicd/badges/master/pipeline.svg)]
 (https://gitlab.com/JessieZhao/mci-test-cicd/commits/master)
 
-[![coverage report](https://gitlab.com/JessieZhao/mci-test-cicd/badges/master/coverage.svg)](https://gitlab.com/JessieZhao/mci-test-cicd/badges/master/coverage.svg?job=coverage)
+[![coverage report](https://gitlab.com/JessieZhao/mci-test-cicd/badges/master/coverage.svg)]
+(https://gitlab.com/JessieZhao/mci-test-cicd/badges/master/coverage.svg?job=coverage)
 
 ## MCI Test Api.
 
