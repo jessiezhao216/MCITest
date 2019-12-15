@@ -16,11 +16,16 @@ In this project there are some functions:User can do MCI Test and record their s
 ## API endpoints.
 user:
 
-   app.post('/user',user.register);
+app.post('/user',user.register);
+
 app.post('/user/login',user.login);
+
 app.get('/user/:id', user.userInfo);
+
 app.put('/user/:id', user.editInfo);
+
 app.delete('/user/:id', user.deleteUser);
+
   a post for register
   
   a post for login with username and password authentication
@@ -32,10 +37,14 @@ app.delete('/user/:id', user.deleteUser);
   
 test:
 
-    app.post('/test',test.addTest)
+app.post('/test',test.addTest);
+
 app.get('/test', test.findAll);
+
 app.get('/test/:id', test.findOne);
+
 app.delete('/test/:id', test.deleteTest);
+
 app.put('/test/:id', test.giveGrade);
     
   a post to add new test
