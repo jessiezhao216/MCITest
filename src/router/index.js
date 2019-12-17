@@ -5,11 +5,11 @@ import giveGrades from '@/components/giveGrades'
 import Register from '@/components/Register'
 import Login from '@/components/Login'
 import UserInfo from '@/components/userInfo'
-import EditInfo from '@/components/editInfo'
-import ChangePsd from '@/components/changePsd'
+import changePsd from '@/components/changePsd'
 import Newtest from '@/components/Newtest'
 import TestContent from '@/components/TestContent'
 import TestHistory from '@/components/TestHistory'
+import editInfo from '@/components/editInfo'
 
 Vue.use(Router)
 
@@ -27,46 +27,46 @@ export default new Router({
     },
     {
       path: '/login',
-      name: 'SignIn',
+      name: 'LogIn',
       component: Login,
       props: true
     },
     {
       path: '/giveGrades',
-      name: 'grade',
+      name: 'giveGrades',
       component: giveGrades,
       props: true
     },
     {
       path: '/UserInfo',
-      name: 'userInfo',
+      name: 'UserInfo',
       component: UserInfo,
       props: true
     },
     {
       path: '/editInfo',
       name: 'editInfo',
-      component: EditInfo,
+      component: editInfo,
       props: true
     },
     {
       path: '/changePsd',
       name: 'changePsd',
-      component: ChangePsd
+      component: changePsd
     },
     {
       path: '/NewTest',
-      name: 'collect',
+      name: 'NewTest',
       component: Newtest
     },
     {
       path: '/TestContent',
-      name: 'Content',
+      name: 'TestContent',
       component: TestContent
     },
     {
       path: '/TestHistory',
-      name: 'History',
+      name: 'TestHistory',
       component: TestHistory,
       props: true
     }
