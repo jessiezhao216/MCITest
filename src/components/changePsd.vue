@@ -2,19 +2,19 @@
   <div class="hero">
     <h3 class="vue-title"><i class="fa fa-comments" style="padding: 3px"></i>{{messagetitle}}</h3>
     <div class="mt-4">
-      <b-card img-src="../assets/card.jpg" img-left title="About Me" border-variant="success">
+      <b-card img-src="../assets/background1.jpg" img-left title="About Me" border-variant="success">
         <b-row>
           <b-col class="bg-light">
             <br/>
             <b-row>
-              <h5 class="toast-header">Please enter the password:</h5>
+              <h5 class="toast-header">Please enter current password:</h5>
             </b-row>
             <b-row>
                 <b-form-input
                   d = "input-psd" aria-describedby="input-psd-feedback" :state="psdState" v-model="enteredPassword" type = "password">
                 </b-form-input>
                 <b-form-invalid-feedback id="input-psd-feedback">
-                  The password must be more than 8 digital
+                  The password must be at least 6 digital
                 </b-form-invalid-feedback>
             </b-row>
             <br/>
@@ -44,7 +44,7 @@
             <br/>
             <b-row>
               <b-col><b-button variant="outline-info" @click = changePassword>Confirm change</b-button></b-col>
-              <b-col ><b-button to="/" variant="outline-secondary" >Cancel</b-button></b-col>
+              <b-col ><b-button to="/UserInfo" variant="outline-secondary" >Cancel</b-button></b-col>
             </b-row>
           </b-col>
         </b-row>
@@ -61,10 +61,10 @@ export default {
       return this.enteredPassword.length > 8 && this.enteredPassword === this.password
     },
     npsdState () {
-      return this.newpassword1 !== this.password && this.newpassword1.length > 8
+      return this.newpassword1 !== this.password && this.newpassword1.length >= 6
     },
     rpsdState () {
-      return this.newpassword1 === this.newpassword2 && this.newpassword2.length > 8
+      return this.newpassword1 === this.newpassword2 && this.newpassword2.length >= 6
     }
   },
   name: 'changePsd',
@@ -87,7 +87,7 @@ export default {
       if (!document.cookie) {
         this.$router.push('/login')
       } else {
-        this.userData = document.cookie
+        this.userData = document.cookie.substring(3)
         UserService.fetchUser(this.userData)
           .then(response => {
             console.log(this.userData)

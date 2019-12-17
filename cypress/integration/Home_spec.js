@@ -1,0 +1,67 @@
+describe('Home page', () => {
+  beforeEach(() => {
+    cy.visit('/')
+    cy.getCookies().should('be.empty')
+    cy.setCookie('id', '5df82742f4a97922cc06b468')
+  })
+
+  describe('Navigation bar', () => {
+    it('Shows the required links', () => {
+      cy.get('.navbar-nav')
+        .eq(0)
+        .within(() => {
+          cy.get('.nav-item')
+            .eq(0)
+            .should('contain', 'Home')
+          cy.get('.nav-item')
+            .eq(1)
+            .should('contain', 'Test')
+          cy.get('.nav-item')
+            .eq(2)
+            .should('contain', 'User Information')
+        })
+      cy.get('.navbar-nav')
+        .eq(1)
+        .within(() => {
+          cy.get('.nav-item')
+            .eq(0)
+            .should('contain', 'User Information')
+        })
+    })
+    //
+    it('Test', () => {
+      cy.get('.navbar-nav')
+        .eq(0)
+        .find('.nav-item')
+        .eq(1)
+        .click()
+      cy.get('#__BVID__12 > .dropdown-menu > :nth-child(1) > .dropdown-item').click()
+      cy.url().should('include', '/NewTest')
+      cy.get('.navbar-nav')
+        .eq(0)
+        .find('.nav-item')
+        .eq(1)
+        .click()
+      cy.get('#__BVID__12 > .dropdown-menu > :nth-child(2) > .dropdown-item').click()
+      cy.url().should('include', '/TestHistory')
+      // etc
+    })
+
+    it('show User Sign in and Sign out', () => {
+      cy.get('.navbar-nav')
+        .eq(1)
+        .find('.nav-item')
+        .eq(0)
+        .click()
+      cy.get('#__BVID__23 > .dropdown-menu > :nth-child(2) > .dropdown-item').click()
+      cy.url().should('include', '/UserInfo')
+      cy.get('.navbar-nav')
+        .eq(1)
+        .find('.nav-item')
+        .eq(0)
+        .click()
+      cy.get('#__BVID__23 > .dropdown-menu > :nth-child(3) > .dropdown-item').click()
+      cy.contains('Sign out')
+    })
+  })
+})

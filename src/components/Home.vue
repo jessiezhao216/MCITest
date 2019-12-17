@@ -24,7 +24,7 @@
 
       <!-- Slides with image only -->
       <b-carousel-slide img-src="../assets/jpg3.jpg" img-height=200>
-        <p class="vue-title"><b><i>ust click <a href ="#/newtest">here</a> to go to</i></b></p>
+        <p class="vue-title"><b><i>Just click <a href ="#/newtest">here</a> to go to</i></b></p>
       </b-carousel-slide>
     </b-carousel>
   </div>

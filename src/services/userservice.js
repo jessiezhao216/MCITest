@@ -15,7 +15,7 @@ export default {
   editInfo (id, user) {
     console.log('REQUESTING ' + user._id + ' ' +
       JSON.stringify(user, null, 5))
-    return Api().put(`/user/${id}/info`, user,
+    return Api().put(`/user/${id}`, user,
       { headers: {'Content-type': 'application/json'} })
   },
   editPassword (id, user) {

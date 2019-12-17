@@ -75,6 +75,7 @@ export default {
       this.test[0].grade = this.grade
       TestService.giveGrade(this.$router.params, this.test[0])
         .then(response => {
+          this.$router.push('TestHistory')
           console.log(response)
           console.log('AFTER PUT ' + JSON.stringify(test, null, 5))
         })
@@ -82,6 +83,7 @@ export default {
           this.errors.push(error)
           console.log(error)
         })
+      this.$router.params = this.file
     }
   }
 }

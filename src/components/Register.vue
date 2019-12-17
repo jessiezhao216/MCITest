@@ -36,7 +36,7 @@
               d = "input-psd" aria-describedby="input-psd-feedback" :state="psdState" v-model="password" type = "password" placeholder="Enter your password">
             </b-form-input>
             <b-form-invalid-feedback id="input-psd-feedback">
-              The password must be more than 8 digital
+              The password must be at least 6 digital
             </b-form-invalid-feedback>
           </b-form-group>
 
@@ -51,7 +51,7 @@
           </b-form-group>
         </b-form-group>
 
-      <b-button squared variant="secondary" @click="userRegister">Register</b-button>
+      <b-button squared variant="secondary" @click="userRegister" class="btn btn-success btn-lg ">Register</b-button>
 <!--      <p class="typo__p" v-if="submitStatus === 'OK'">Recommending a new novel!</p>-->
 <!--      <p class="typo__p" v-if="submitStatus === 'ERROR'">Please Fill in the Form Correctly.</p>-->
 <!--      <p class="typo__p" v-if="submitStatus === 'PENDING'">Adding···</p>-->
@@ -95,7 +95,7 @@ export default {
       return this.username.length > 2
     },
     psdState () {
-      return this.password.length > 8
+      return this.password.length >= 6
     },
     rpsdState () {
       return this.password === this.repassword

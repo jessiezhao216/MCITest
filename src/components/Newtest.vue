@@ -86,16 +86,14 @@ export default {
         console.log('Submitting in TestHistory : ' + JSON.stringify(this.test, null, 3))
         this.submitHistory(this.test)
       }, 500)
-
       this.$router.params = this.file
-      this.$router.push('TestContent')
-      console.log(this.file.name)
     },
     submitHistory: function (test) {
       console.log('submit history!')
       console.log('Submitting in TestHistory : ' + test)
       TestService.postTest(test)
         .then(response => {
+          this.$router.push('TestContent')
           console.log(response)
         })
         .catch(error => {
@@ -147,14 +145,5 @@ export default {
     background: white;
     padding: 5px 10px;
     width: 540px;
-  }
-  .error {
-    border-color: red;
-    background: #157ffb;
-    color: whitesmoke;
-  }
-
-  .error:focus {
-    outline-color: #ffa519;
   }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div class="hero">
-    <h3 class="vue-title"><i class="fa fa-comments" style="padding: 3px"></i>{{messagetitle}}</h3>
+    <h3 class="vue-title"><i class="fa fa-users" style="padding: 3px"></i> {{messagetitle}}</h3>
     <div class="mt-4">
       <b-card img-src="../assets/background1.jpg" img-left title="About Me" border-variant="success">
         <b-row>
@@ -79,7 +79,7 @@ export default {
       if (!document.cookie) {
         this.$router.push('/login')
       } else {
-        this.userData = document.cookie
+        this.userData = document.cookie.substring(3)
         UserService.fetchUser(this.userData)
           .then(response => {
             console.log(this.userData)

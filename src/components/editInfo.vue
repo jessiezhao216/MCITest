@@ -1,8 +1,8 @@
 <template>
   <div class="hero">
-    <h3 class="vue-title"><i class="fa fa-user" style="padding: 3px">{{messagetitle}}</i></h3>
+    <h3 class="vue-title"><i class="fa fa-file-text" style="padding: 3px">{{messagetitle}}</i></h3>
     <div class="mt-4">
-      <b-card img-src="../assets/card.jpg" img-left title="About Me" border-variant="success">
+      <b-card img-src="../assets/background1.jpg" img-left title="About Me" border-variant="success">
         <b-row>
           <b-col class="bg-light">
             <br/>
@@ -52,7 +52,7 @@
             <br/>
             <b-row>
               <b-col><b-button variant="outline-info" @click = changeInfo>Confirm change</b-button></b-col>
-              <b-col ><b-button to="/Info" variant="outline-secondary" >Cancel</b-button></b-col>
+              <b-col ><b-button to="/UserInfo" variant="outline-secondary" >Cancel</b-button></b-col>
             </b-row>
           </b-col>
         </b-row>
@@ -67,7 +67,7 @@ export default {
   name: 'editInfo',
   data () {
     return {
-      messagetitle: 'User Info',
+      messagetitle: 'User Information',
       userData: '',
       user: [],
       username: '',
@@ -85,7 +85,7 @@ export default {
       if (!document.cookie) {
         this.$router.push('/login')
       } else {
-        this.userData = document.cookie
+        this.userData = document.cookie.substring(3)
         UserService.fetchUser(this.userData)
           .then(response => {
             console.log(this.userData)
@@ -108,12 +108,12 @@ export default {
       this.user[0].age = this.age
       this.user[0].gender = this.gender
       this.user[0].email = this.email
-      this.medical_history = this.medical_history
+      this.user[0].medical_history = this.medical_history
       UserService.editInfo(this.userData, this.user[0])
         .then(response => {
           console.log(response)
           console.log('AFTER PUT ' + JSON.stringify(user, null, 5))
-          this.$router.push('/Info')
+          this.$router.push('/UserInfo')
         })
         .catch(error => {
           this.errors.push(error)

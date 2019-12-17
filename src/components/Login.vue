@@ -73,8 +73,10 @@ export default {
             this.errmessages = 'Your username or password is wrong'
             this.password = ''
           } else {
-            document.cookie = (response.data.data._id)
-            // response.cookie('userData', this.username)
+            document.cookie = ('id = ' + response.data.data._id)
+            var id = document.cookie.substring(3)
+            console.log(document.cookie)
+            console.log(id)
             this.errmessages = 'Successfully logged in'
             console.log('Submitting in submitUser : ' + user)
             this.$router.push('/')

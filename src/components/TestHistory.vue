@@ -26,7 +26,7 @@ export default {
       test: [],
       props: ['_id'],
       errors: [],
-      columns: ['_id', 'name', 'testername', 'testdate', 'grade', 'givegrade', 'remove'],
+      columns: ['_id', 'name', 'testername', 'grade', 'givegrade', 'remove'],
       options: {
         perPage: 10,
         filterable: ['name', 'testername'],
@@ -35,7 +35,6 @@ export default {
           _id: 'ID',
           name: 'Test name',
           testername: 'Tester name',
-          testdate: 'Test date',
           grade: 'Grade',
           remove: 'Delete Test'
         }

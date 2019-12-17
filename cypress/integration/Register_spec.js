@@ -1,0 +1,52 @@
+describe('add a user', () => {
+  describe('with valid attributes', function () {
+    it('add a user and turn to login page', function () {
+      cy.visit('/register')
+      // programmatically log us in without needing the UI
+      cy.contains(' User Information')
+      cy.get('#input-live').type('Daniel')
+        .should('have.value', 'Daniel')
+      cy.get('#__BVID__38').type('daniel@wit')
+        .should('have.value', 'daniel@wit')
+      cy.get(':nth-child(2) > .custom-control-label').click()
+      cy.get('#__BVID__44').clear().type('45')
+        .should('have.value', '45')
+      cy.get('#__BVID__46').type('abc123')
+        .should('have.value', 'abc123')
+      cy.get('#input-rpsd').type('abc123')
+        .should('have.value', 'abc123')
+      cy.get('#__BVID__50').type('lose memory')
+        .should('have.value', 'lose memory')
+
+      cy.get('#register\\ form > button').click()
+      cy.url().should('include', '/login')
+      cy.getCookies().should('be.empty')
+    })
+  })
+  describe('With invalid/blank attributes', () => {
+    it('show invalid attributes ', () => {
+      cy.visit('/register')
+      cy.contains('Enter at least 3 letters')
+      cy.contains('The password must be at least 6 digital')
+    })
+    it('shows error messages for enter different passwords ', () => {
+      cy.visit('/register')
+      // programmatically log us in without needing the UI
+      cy.contains(' User Information')
+      cy.get('#input-live').type('Daniel')
+        .should('have.value', 'Daniel')
+      cy.get('#__BVID__38').type('daniel@wit')
+        .should('have.value', 'daniel@wit')
+      cy.get(':nth-child(2) > .custom-control-label').click()
+      cy.get('#__BVID__44').clear().type('45')
+        .should('have.value', '45')
+      cy.get('#__BVID__46').type('abc123')
+        .should('have.value', 'abc123')
+      cy.get('#input-rpsd').type('abcd123')
+        .should('have.value', 'abcd123')
+      cy.get('#__BVID__50').type('lose memory')
+        .should('have.value', 'lose memory')
+      cy.contains('The two password must be the same')
+    })
+  })
+})

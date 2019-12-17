@@ -33,23 +33,23 @@
             </label>
           </div>
 <!--          按钮-->
-          <div class="row">
-            <div class="col-lg-6 col-xm-12">
+<!--          <div class="row">-->
+<!--            <div class="col-lg-6 col-xm-12">-->
               <button @click="prev()" type="button" class="btn btn-danger btn-lg btn-block">previous question</button>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-lg-6 col-xm-12">
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="row">-->
+<!--            <div class="col-lg-6 col-xm-12">-->
               <button v-if="answer==''" v-on:click="next()" type="button" class="btn btn-primary btn-lg btn-block mt-lg-0 mt-3" disabled>next question</button>
               <button v-else v-on:click="next()" type="button" class="btn btn-primary btn-lg btn-block mt-lg-0 mt-3" >next question</button>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-lg-6 col-xm-12">
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="row">-->
+<!--            <div class="col-lg-6 col-xm-12">-->
               <button v-if="progress==4" v-on:click="giveGrade()" type="button" class="btn btn-success btn-lg btn-block mt-lg-0 mt-3" >submit</button>
 
-            </div>
-          </div>
+<!--            </div>-->
+<!--          </div>-->
         </div>
       </div>
   </div>

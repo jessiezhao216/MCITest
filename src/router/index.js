@@ -38,7 +38,7 @@ export default new Router({
       props: true
     },
     {
-      path: '/Info',
+      path: '/UserInfo',
       name: 'userInfo',
       component: UserInfo,
       props: true

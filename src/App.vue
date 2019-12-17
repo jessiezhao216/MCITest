@@ -8,10 +8,10 @@
         <b-navbar-nav>
           <b-nav-item to="/#"><i class="fa fa-home" style="padding: 5px"> Home</i></b-nav-item>
          <b-nav-item-dropdown text="Test" right>
-            <b-dropdown-item to ="/newtest"> <i class="fa fa-book" style="padding: 5px">New Test</i></b-dropdown-item>
-            <b-dropdown-item to ="/TestHistory"><i class="fa fa-plus-square" style="padding: 5px">Test history</i></b-dropdown-item>
+            <b-dropdown-item to ="/NewTest"> <i class="fa fa-file-code-o" style="padding: 5px"> New Test</i></b-dropdown-item>
+            <b-dropdown-item to ="/TestHistory"><i class="fa fa-file" style="padding: 5px"> Test history</i></b-dropdown-item>
           </b-nav-item-dropdown>
-          <b-nav-item to="/newtest">New Test</b-nav-item>
+          <b-nav-item to="/UserInfo"><i class="fa fa-cog" aria-hidden="true">&nbsp;User Information</i></b-nav-item>
         </b-navbar-nav>
         <b-navbar-nav class="ml-auto">
           <b-nav-form>
@@ -20,8 +20,8 @@
           </b-nav-form>
           <b-nav-item-dropdown text="User Account" right>
             <b-dropdown-item to ="/login"><i class="fa fa-user-o" style="padding: 5px"> {{this.username}} </i></b-dropdown-item>
-            <b-dropdown-item to ="/Info"> <i class="fa fa-user" style="padding: 5px">User Acount</i></b-dropdown-item>
-            <b-dropdown-item> <i class="fa fa-user" style="padding: 5px" @click=Signout>Sign out</i></b-dropdown-item>
+            <b-dropdown-item to ="/UserInfo"> <i class="fa fa-user" style="padding: 5px"> User Information</i></b-dropdown-item>
+            <b-dropdown-item> <i class="fa fa-user" style="padding: 5px" @click=Signout> Sign out</i></b-dropdown-item>
 <!--            <b-dropdown-item to ="/register"> <i class="fa fa-user" style="padding: 5px">Register</i></b-dropdown-item>-->
           </b-nav-item-dropdown>
 <!--          <b-dropdown id="dropdown-text" text="User Account" class="m-2" right>-->
@@ -63,7 +63,7 @@ export default {
       if (!document.cookie) {
         this.username = 'Sign in'
       } else {
-        this.userData = document.cookie
+        this.userData = document.cookie.substring(3)
         UserService.fetchUser(this.userData)
           .then(response => {
             console.log(this.userData)
@@ -78,7 +78,8 @@ export default {
       }
     },
     Signout: function () {
-      document.cookie = ('')
+      // document.cookie = ('')
+      document.cookie = 'id=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;'
       window.location.reload()
       this.$router.push('/')
     }
