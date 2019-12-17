@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import TestService from '@/services/TestService'
+import testService from '@/services/testService'
 import Vue from 'vue'
 import VueTables from 'vue-tables-2'
 Vue.use(VueTables.ClientTable, {compileTemplates: true, filterByColumn: true})
@@ -53,7 +53,7 @@ export default {
       }
     },
     loadTest: function () {
-      TestService.fetchTest()
+      testService.fetchTest()
         .then(response => {
           this.test = response.data
           console.log(this.test)
@@ -76,7 +76,7 @@ export default {
       }).then((result) => {
         console.log('SWAL Result : ' + result)
         if (result === true) {
-          TestService.deleteTest(id)
+          testService.deleteTest(id)
             .then(response => {
               this.message = response.data
               console.log(this.message)

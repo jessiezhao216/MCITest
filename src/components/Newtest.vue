@@ -38,7 +38,7 @@ import Vue from 'vue'
 import VueForm from 'vueform'
 import Vuelidate from 'vuelidate'
 import VueSweetalert from 'vue-sweetalert'
-import TestService from '@/services/TestService'
+import testService from '@/services/testService'
 Vue.use(VueForm, {
   inputClasses: {
     valid: 'form-control-success',
@@ -91,7 +91,7 @@ export default {
     submitHistory: function (test) {
       console.log('submit history!')
       console.log('Submitting in TestHistory : ' + test)
-      TestService.postTest(test)
+      testService.postTest(test)
         .then(response => {
           this.$router.push('TestContent')
           console.log(response)

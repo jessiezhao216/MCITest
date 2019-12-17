@@ -22,7 +22,7 @@ import Vue from 'vue'
 import VueForm from 'vueform'
 import Vuelidate from 'vuelidate'
 import VueSweetalert from 'vue-sweetalert'
-import TestService from '@/services/TestService'
+import testService from '@/services/testService'
 import { required, minLength, between } from 'vuelidate/lib/validators'
 Vue.use(VueForm, {
   inputClasses: {
@@ -58,7 +58,7 @@ export default {
   },
   methods: {
     getTest: function () {
-      TestService.fetchTest(this.$router.params)
+      testService.fetchTest(this.$router.params)
         .then(response => {
           console.log(this.$router.params)
           this.test = response.data
@@ -73,7 +73,7 @@ export default {
     },
     givegrade: function (test) {
       this.test[0].grade = this.grade
-      TestService.giveGrade(this.$router.params, this.test[0])
+      testService.giveGrade(this.$router.params, this.test[0])
         .then(response => {
           this.$router.push('TestHistory')
           console.log(response)
