@@ -65,7 +65,7 @@ export default {
     },
     deleteTest: function (id) {
       this.$swal({
-        title: 'Are you totaly sure?',
+        title: 'Are you sure?',
         text: 'You can\'t Undo this action',
         type: 'warning',
         showCancelButton: true,

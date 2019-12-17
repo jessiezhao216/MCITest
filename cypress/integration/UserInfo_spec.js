@@ -2,6 +2,12 @@ describe('User Information page', () => {
   beforeEach(() => {
     cy.visit('/')
     cy.setCookie('id', '5df82742f4a97922cc06b468')
+    cy.request('PUT', 'https://mci-staging-api.herokuapp.com/user/5df82742f4a97922cc06b468', { password: 'abc123' })
+      .then((response) => {
+        // response.body is automatically serialized into JSON
+        // eslint-disable-next-line no-undef
+        expect(response.body).to.have.property('password', 'abc123') // true
+      })
     cy.get('.navbar-nav')
       .eq(1)
       .find('.nav-item')
