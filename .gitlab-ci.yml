@@ -9,8 +9,9 @@ cache:
 stages:
   - install
   - build
-  - test
-
+#  - test
+  - deploy
+  - production
 # Jobs:
 
 install_dependencies:
