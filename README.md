@@ -3,7 +3,12 @@
 [![pipeline status](https://gitlab.com/JessieZhao/mci-test-cicd/badges/master/pipeline.svg)]
 (https://gitlab.com/JessieZhao/mci-test-cicd/commits/master)
 
+<<<<<<< HEAD
 [![coverage report](https://gitlab.com/JessieZhao/mci-test-cicd/badges/master/coverage.svg)](https://gitlab.com/JessieZhao/mci-test-cicd/badges/master/coverage.svg?job=coverage)
+=======
+[![coverage report](https://gitlab.com/JessieZhao/mci-test-cicd/badges/master/coverage.svg)]
+(https://gitlab.com/JessieZhao/mci-test-cicd/badges/master/coverage.svg?job=coverage)
+>>>>>>> 8e73138ae38a9389cdc76c02633f15733feaa759
 
 ## MCI Test Api.
 
@@ -15,11 +20,23 @@ In this project there are some functions:User can do MCI Test and record their s
 ## API endpoints.
 user:
 
+<<<<<<< HEAD
     app.post('/user',user.register);
     app.post('/user/login',user.login);
     app.get('/user/:id', user.userInfo);
     app.put('/user/:id', user.editInfo);
     app.delete('/user/:id', user.deleteUser);
+=======
+app.post('/user',user.register);
+
+app.post('/user/login',user.login);
+
+app.get('/user/:id', user.userInfo);
+
+app.put('/user/:id', user.editInfo);
+
+app.delete('/user/:id', user.deleteUser);
+>>>>>>> 8e73138ae38a9389cdc76c02633f15733feaa759
 
   a post for register
   
@@ -32,6 +49,7 @@ user:
   
 test:
 
+<<<<<<< HEAD
     app.post('/test',test.addTest)
     app.get('/test', test.findAll);
     app.get('/test/:id', test.findOne);
@@ -46,6 +64,26 @@ test:
   
   a delete to delete the test
 
+=======
+app.post('/test',test.addTest);
+
+app.get('/test', test.findAll);
+
+app.get('/test/:id', test.findOne);
+
+app.delete('/test/:id', test.deleteTest);
+
+app.put('/test/:id', test.giveGrade);
+    
+  a post to add new test
+ 
+  a get to get all test information
+  
+  a get to get a test information
+  
+  a delete to delete the test
+
+>>>>>>> 8e73138ae38a9389cdc76c02633f15733feaa759
   a put to give a grade to the test
   
 ###Introduction and Tech
