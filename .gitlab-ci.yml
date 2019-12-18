@@ -26,12 +26,41 @@ build:
     paths:
       - dist/
 
-test:
-  image: cypress/base:10
-  stage: test
+#test:
+#  image: cypress/base:10
+#  stage: test
+#  before_script:
+#    - npm install -g httpserver
+#    - npm install cypress
+#    - npm run start:server
+#  script:
+#    - npx cypress run --record --key=$CYPRESS_RECORD_KEY
+
+deploy_staging:
+  image: ruby:latest
+  only:
+    - develop
+  stage: deploy
   before_script:
-    - npm install -g httpserver
-    - npm install cypress
-    - npm run start:server
+    - apt-get update -qy
+    - apt-get install -y ruby-dev
+    - gem install dpl
   script:
-    - npx cypress run --record --key=$CYPRESS_RECORD_KEY
+    - dpl --provider=heroku --app=$HEROKU_APP_NAME_STAGING --api-key=$HEROKU_API_KEY
+    - echo "Deployed to staging server"
+
+continuous_delivery:
+  image: ruby:latest
+  dependencies:
+    - deploy_staging
+  only:
+    - develop
+  stage: production
+  before_script:
+    - apt-get update -qy
+    - apt-get install -y ruby-dev
+    - gem install dpl
+  script:
+    - dpl --provider=heroku --app=$HEROKU_APP_NAME_PROD --api-key=$HEROKU_API_KEY
+    - echo "Deployed to production server"
+  when: manual
